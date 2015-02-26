@@ -1,0 +1,27 @@
+{
+  "name": "gravsim",
+  "version": "0.0.0",
+  "authors": [
+    "Lukas Kilian <lukas.kilian@outlook.at>"
+  ],
+  "description": "Simulates gravity of bodies",
+  "main": "index.html",
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "underscore": "~1.8.2",
+    "backbone": "~1.1.2",
+    "pixi.js": "~2.2.7",
+    "two.js": "jonobr1/two.js#~0.4.0"
+  }
+}

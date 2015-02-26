@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<title></title>
+		<link href="css/style.css" type="stylesheet"/>
+		<script type="application/javascript" src="bower_components/two.js/build/two.js"></script>
+		<script type="application/javascript" src="grav.js"></script>
+	</head>
+	<body>
+		<script>
+			var two = new Two({
+				fullscreen: true,
+				autostart: true
+			}).appendTo(document.body);
+
+			//var circle = two.makeCircle(two.width / 2, two.width/2, 5);
+
+			//circle.fill = '#FF8000';
+			//circle.stroke = 'orangered';
+			//circle.linewidth = 3;
+
+			var N = 100;
+
+			var bs = grav.genBS(N, two.width, two.height);
+			var vis_bs = [];
+
+			bs.forEach(function(body) {
+				var circle = two.makeCircle(body.x, body.y, 5);
+
+				circle.fill = '#FF8000';
+				circle.stroke = 'orangered';
+				circle.linewidth = 3;
+
+				vis_bs.push(circle);
+			});
+
+			two.bind('update', function(frameCount) {
+				bs = grav.regrav(bs, 1);
+				bs.forEach(function (body, i) {
+					vis_bs[i].translation.x = body.x;
+					vis_bs[i].translation.y = body.y;
+				});
+			}).play();
+		</script>
+	</body>
+</html>
